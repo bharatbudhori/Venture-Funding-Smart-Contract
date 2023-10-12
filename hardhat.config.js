@@ -6,7 +6,7 @@ module.exports = {
         network: {
             hardhat: {},
             goerli: {
-                url: "https://rpc.ankr.com/eth/goerli",
+                url: "https://goerli.rpc.thirdweb.com",
                 accounts: [process.env.PRIVATE_KEY],
             },
         },
