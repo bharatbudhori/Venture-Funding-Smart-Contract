@@ -23,7 +23,7 @@ contract VentureFunding {
     function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
-        require(campaign.deadline < block.timestamp, "Deadline must be in the future");
+        require(_deadline > block.timestamp, "Deadline must be in the future");
         
         campaign.owner = _owner;
         campaign.title = _title;
@@ -44,7 +44,7 @@ contract VentureFunding {
 
         Campaign storage campaign = campaigns[_id];
 
-        require(campaign.deadline < block.timestamp, "Deadline must be in the future");
+        require(campaign.deadline > block.timestamp, "Deadline must be in the future");
 
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
